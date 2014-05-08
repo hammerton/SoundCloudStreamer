@@ -29,6 +29,7 @@ def test2():
     print stream_url.location
 
 def test3():
+
     def on_tag(bus, msg):
         taglist = msg.parse_tag()
         print 'on_tag:'
@@ -36,7 +37,7 @@ def test3():
             print '\t%s = %s' % (key, taglist[key])
 
     #our stream to play
-    #http://api.soundcloud.com/tracks/{id}/stream?client_id=YOUR_CLIENT_ID
+    #http://api.soundcloud.com/tracks/{id}/stream?client_id={YOUR_CLIENT_ID}
     music_stream_uri = 'http://api.soundcloud.com/tracks/105086121/stream?client_id=e72237107739281ffceb867534efd87c'
 
     #creates a playbin (plays media form an uri)
