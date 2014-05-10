@@ -47,6 +47,7 @@ class PoolSideStream():
         return tracks
 
     def play_tracks(self):
+        self.player.set_state(gst.STATE_NULL)
         random.shuffle(self.tracks)
         for curr_track in self.tracks:
             self.playmode = True
@@ -55,7 +56,7 @@ class PoolSideStream():
             self.player.set_state(gst.STATE_PLAYING)
             while self.player.get_state()[1] != gst.STATE_NULL:
                 time.sleep(1)
-                print "Playing track: %s" % curr_track['scId']
+                print "%s -- Playing track: %s" % (self.player.get_state()[1], curr_track['scId'])
 
         time.sleep(1)
 
@@ -100,8 +101,9 @@ class PoolSidePlayer(QtGui.QWidget):
 
     def skip(self):
         # self.p.terminate()
+        # self.pss.stop()
+        # self.play()
         self.pss.stop()
-        self.play()
 
     def initUI(self):
 
