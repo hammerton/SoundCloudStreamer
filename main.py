@@ -123,7 +123,7 @@ class PoolSidePlayer(QtGui.QWidget):
 
     def cleanUp(self):
         del self.pss
-        self.loop.quit()
+        # self.loop.quit()
         thread.exit()
 
     def closeEvent(self, QCloseEvent):
